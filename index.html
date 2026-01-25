@@ -10,7 +10,6 @@
 
   <style>
     :root {
-      --blue-glow: #3b82f6;
       --metal-gradient: linear-gradient(135deg, #71717a 0%, #ffffff 45%, #a1a1aa 55%, #27272a 100%);
     }
 
@@ -28,6 +27,7 @@
 
     .syncopate { font-family: 'Syncopate', sans-serif; }
 
+    /* Chrome text */
     .chrome-text {
       background: linear-gradient(120deg, #e5e7eb, #a1a1aa, #ffffff, #71717a, #e5e7eb);
       background-size: 200% auto;
@@ -37,9 +37,9 @@
       animation: shine 4s linear infinite;
       text-shadow: 0 0 18px rgba(59,130,246,0.15);
     }
-
     @keyframes shine { to { background-position: 200% center; } }
 
+    /* Ambient */
     .ambient-light {
       position: fixed;
       inset: 0;
@@ -50,6 +50,7 @@
       z-index: 0;
     }
 
+    /* Liquid glass */
     .liquid-glass {
       background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
       backdrop-filter: blur(20px);
@@ -61,12 +62,12 @@
       position: relative;
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
-
     .liquid-glass:hover {
       transform: translateY(-2px);
       border-color: rgba(59,130,246,0.35);
     }
 
+    /* Scanline */
     .scanline {
       position: absolute;
       left: 0;
@@ -78,13 +79,13 @@
       pointer-events: none;
       opacity: 0.75;
     }
-
     @keyframes scan {
       0% { top: -30%; opacity: 0; }
       35% { opacity: 0.7; }
       100% { top: 100%; opacity: 0; }
     }
 
+    /* Metal button */
     .metal-btn {
       background: var(--metal-gradient);
       color: #000;
@@ -95,12 +96,10 @@
       transition: all 0.25s ease;
       box-shadow: 0 14px 35px rgba(0,0,0,0.45);
     }
-
     .metal-btn:hover {
       transform: translateY(-1px);
       filter: brightness(1.06);
     }
-
     .metal-btn::after {
       content: "";
       position: absolute;
@@ -111,14 +110,13 @@
       transition: opacity 0.25s ease;
       pointer-events: none;
     }
-
     .metal-btn:hover::after { opacity: 0.55; }
 
+    /* Link micro */
     .micro-link {
       color: rgba(255,255,255,0.55);
       transition: color 0.2s ease;
     }
-
     .micro-link:hover {
       color: rgba(59,130,246,0.95);
     }
@@ -222,7 +220,7 @@
         <a href="https://t.me/blagovmusic" target="_blank" rel="noopener"
            class="micro-link text-[9px] font-bold tracking-[0.5em] uppercase">Telegram</a>
 
-        <a href="https://www.youtube.com/@Blagov4217" target="_blank" rel="noopener
+        <a href="https://www.youtube.com/@Blagov4217" target="_blank" rel="noopener"
            class="micro-link text-[9px] font-bold tracking-[0.5em] uppercase">YouTube</a>
       </div>
 
