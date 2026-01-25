@@ -2,95 +2,243 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Blagovek — визитка</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blagovek — визитка</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --blue-glow: #3b82f6;
+      --metal-gradient: linear-gradient(135deg, #71717a 0%, #ffffff 45%, #a1a1aa 55%, #27272a 100%);
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #0f0f0f;
-      color: #eaeaea;
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #050505;
+      color: #fff;
+      margin: 0;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      margin: 0;
+      overflow-x: hidden;
     }
-    .container {
-      max-width: 680px;
-      padding: 44px 28px;
-      text-align: left;
+
+    .syncopate { font-family: 'Syncopate', sans-serif; }
+
+    /* Chrome text */
+    .chrome-text {
+      background: linear-gradient(120deg, #e5e7eb, #a1a1aa, #ffffff, #71717a, #e5e7eb);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shine 4s linear infinite;
+      text-shadow: 0 0 18px rgba(59,130,246,0.15);
     }
-    h1 {
-      font-size: 34px;
-      margin: 0 0 10px 0;
-      letter-spacing: 0.2px;
+
+    @keyframes shine { to { background-position: 200% center; } }
+
+    /* Ambient */
+    .ambient-light {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(800px 500px at 15% 20%, rgba(59,130,246,0.13), transparent 60%),
+        radial-gradient(700px 450px at 85% 70%, rgba(59,130,246,0.10), transparent 60%);
+      filter: blur(0px);
+      opacity: 1;
+      z-index: 0;
     }
-    .subtitle {
-      font-size: 18px;
-      opacity: 0.85;
-      margin: 0 0 26px 0;
+
+    /* Liquid glass */
+    .liquid-glass {
+      background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.10),
+        0 30px 60px rgba(0,0,0,0.45);
+      border-radius: 18px;
+      position: relative;
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
-    p {
-      font-size: 18px;
-      line-height: 1.55;
-      opacity: 0.92;
-      margin: 0 0 18px 0;
+
+    .liquid-glass:hover {
+      transform: translateY(-2px);
+      border-color: rgba(59,130,246,0.35);
     }
-    .divider {
-      height: 1px;
-      background: rgba(255,255,255,0.08);
-      margin: 26px 0;
+
+    /* Scanline */
+    .scanline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -30%;
+      height: 30%;
+      background: linear-gradient(to bottom, transparent, rgba(59,130,246,0.18), transparent);
+      animation: scan 3.2s ease-in-out infinite;
+      pointer-events: none;
+      opacity: 0.75;
     }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+
+    @keyframes scan {
+      0% { top: -30%; opacity: 0; }
+      35% { opacity: 0.7; }
+      100% { top: 100%; opacity: 0; }
     }
-    li {
-      margin: 12px 0;
-      font-size: 18px;
+
+    /* Metal button */
+    .metal-btn {
+      background: var(--metal-gradient);
+      color: #000;
+      font-weight: 800;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.45);
     }
-    a {
-      color: #7dd3fc;
-      text-decoration: none;
+
+    .metal-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.06);
     }
-    a:hover {
-      text-decoration: underline;
+
+    .metal-btn::after {
+      content: "";
+      position: absolute;
+      inset: -60% -60%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.65), transparent 35%);
+      transform: rotate(12deg);
+      opacity: 0.35;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
     }
-    .hint {
-      margin-top: 26px;
-      font-size: 14px;
-      opacity: 0.6;
-      line-height: 1.4;
+
+    .metal-btn:hover::after { opacity: 0.55; }
+
+    /* Link micro */
+    .micro-link {
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s ease;
+    }
+
+    .micro-link:hover {
+      color: rgba(59,130,246,0.95);
     }
   </style>
 </head>
 
-<body>
-  <div class="container">
-    <h1>Евгений Благов</h1>
-    <div class="subtitle">Blagovek</div>
+<body class="p-4 md:p-8">
+  <div class="ambient-light"></div>
 
-    <p><strong>Цифровой продюсер.</strong></p>
+  <main class="max-w-md w-full space-y-10 relative z-10">
 
-    <p>
-      Работаю с AI-аватарами, видео и идеями, которые можно быстро превратить в готовый формат.<br>
-      Делаю проекты без съёмок и лишней сложности.
-    </p>
-
-    <div class="divider"></div>
-
-    <ul>
-      <li>AI-аватары → <a href="https://www.instagram.com/blagovavatars/" target="_blank" rel="noopener">Blagov Avatars</a></li>
-      <li>AI-артист → <a href="https://www.instagram.com/evgeniimisli/" target="_blank" rel="noopener">Евгения Strong</a></li>
-      <li>Проекты и кейсы → <a href="https://www.instagram.com/blagovek/" target="_blank" rel="noopener">Blagovek (Instagram)</a></li>
-      <li>Concept videos → <a href="https://www.youtube.com/@Blagov4217" target="_blank" rel="noopener">YouTube</a></li>
-      <li>Музыка → <a href="https://t.me/blagovmusic" target="_blank" rel="noopener">Telegram</a></li>
-    </ul>
-
-    <div class="hint">
-      Мини-визитка: один экран, без лишнего. Обновляю по мере появления новых кейсов.
+    <!-- Info panel -->
+    <div class="flex justify-between items-center px-2">
+      <div class="text-[8px] syncopate tracking-[0.4em] text-zinc-600">
+        MODEL: BLAGOV_SYSTEM_v3.0
+      </div>
+      <div class="text-[8px] syncopate tracking-[0.4em] text-blue-500 animate-pulse">
+        • AI_CORE_ACTIVE
+      </div>
     </div>
-  </div>
+
+    <!-- Header -->
+    <header class="text-left space-y-4 px-2">
+      <h1 class="syncopate text-6xl font-bold leading-none chrome-text tracking-tighter">
+        AI<br>AVATARS
+      </h1>
+
+      <div class="space-y-1 border-l-2 border-white/20 pl-4">
+        <p class="syncopate text-lg font-bold">ЕВГЕНИЙ БЛАГОВ</p>
+        <p class="text-[10px] uppercase tracking-[0.5em] text-zinc-500 font-bold">
+          Цифровой продюсер · видео и аватары под задачу
+        </p>
+      </div>
+    </header>
+
+    <!-- Cards -->
+    <section class="space-y-6">
+
+      <!-- Card 1 -->
+      <a href="https://www.instagram.com/blagovavatars/" target="_blank" rel="noopener"
+         class="liquid-glass p-6 group block overflow-hidden">
+        <div class="scanline"></div>
+        <div class="flex items-center gap-6">
+          <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 group-hover:text-white transition-colors">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="1.2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="syncopate text-sm font-bold tracking-tight">AI AVATARS</h3>
+            <p class="text-[10px] text-zinc-500 uppercase mt-1">Говорящие персонажи · роли · витрина</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="https://www.instagram.com/evgeniimisli/" target="_blank" rel="noopener"
+         class="liquid-glass p-6 group block overflow-hidden">
+        <div class="flex items-center gap-6">
+          <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 group-hover:text-white transition-colors">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="1.2" d="M12 6v6l4 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="syncopate text-sm font-bold tracking-tight">EXPERT VIDEO</h3>
+            <p class="text-[10px] text-zinc-500 uppercase mt-1">Экспертные ролики · обучение · онбординг</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="https://www.youtube.com/@Blagov4217" target="_blank" rel="noopener"
+         class="liquid-glass p-6 group block overflow-hidden">
+        <div class="flex items-center gap-6">
+          <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 group-hover:text-white transition-colors">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="1.2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="syncopate text-sm font-bold tracking-tight">CONCEPT VIDEO</h3>
+            <p class="text-[10px] text-zinc-500 uppercase mt-1">Концепты · смыслы · визуальные эксперименты</p>
+          </div>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-2 space-y-8 text-center">
+      <a href="https://www.instagram.com/blagovavatars/" target="_blank" rel="noopener"
+         class="metal-btn w-full py-5 inline-block">
+        <span class="syncopate text-xs tracking-[0.3em] uppercase">Посмотреть примеры</span>
+      </a>
+
+      <div class="flex justify-center gap-10">
+        <a href="https://www.instagram.com/blagovek/" target="_blank" rel="noopener"
+           class="micro-link text-[9px] font-bold tracking-[0.5em] uppercase">Instagram</a>
+
+        <a href="https://t.me/blagovmusic" target="_blank" rel="noopener"
+           class="micro-link text-[9px] font-bold tracking-[0.5em] uppercase">Telegram</a>
+
+        <a href="https://www.youtube.com/@Blagov4217" target="_blank" rel="noopener"
+           class="micro-link text-[9px] font-bold tracking-[0.5em] uppercase">YouTube</a>
+      </div>
+
+      <div class="text-[9px] text-zinc-600 tracking-wide">
+        blagovek.site
+      </div>
+    </footer>
+
+  </main>
 </body>
 </html>
