@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blagovek — визитка</title>
+  <title>Blagovek — КП / Прайс</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
@@ -112,7 +112,6 @@
     }
     .metal-btn:hover::after { opacity: 0.55; }
 
-    /* Link micro */
     .micro-link {
       color: rgba(255,255,255,0.55);
       transition: color 0.2s ease;
@@ -121,57 +120,29 @@
       color: rgba(59,130,246,0.95);
     }
 
-    /* КП / Прайс */
-    .kp {
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 20px 50px rgba(0,0,0,0.45);
-    }
-    .kp h4 {
-      font-family: 'Syncopate', sans-serif;
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-    }
-    .kp .row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .kp .row:last-child { border-bottom: 0; }
-    .kp .label {
-      font-size: 11px;
-      color: rgba(255,255,255,0.70);
-      line-height: 1.3;
-    }
-    .kp .price {
-      font-weight: 800;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-    .kp .note {
-      margin-top: 10px;
-      font-size: 10px;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.4;
-    }
     .pill {
-      display: inline-block;
-      padding: 6px 10px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
       border-radius: 999px;
-      background: rgba(59,130,246,0.12);
-      border: 1px solid rgba(59,130,246,0.22);
-      font-size: 9px;
-      letter-spacing: 0.24em;
+      padding: 6px 10px;
+      font-size: 10px;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: rgba(147,197,253,0.95);
-      font-weight: 700;
-      margin-top: 10px;
+      color: rgba(255,255,255,0.65);
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .price {
+      font-family: 'Syncopate', sans-serif;
+      letter-spacing: 0.10em;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.10);
+      margin: 18px 0;
     }
   </style>
 </head>
@@ -179,149 +150,173 @@
 <body class="p-4 md:p-8">
   <div class="ambient-light"></div>
 
-  <main class="max-w-md w-full space-y-10 relative z-10">
+  <main class="max-w-xl w-full space-y-8 relative z-10">
 
-    <!-- Status line (decorative UI vibe) -->
+    <!-- Top -->
     <div class="flex justify-between items-center px-2">
       <div class="text-[8px] syncopate tracking-[0.4em] text-zinc-600">
-        MODEL: BLAGOV_SYSTEM_v3.0
+        КП: AVATARS / VIDEO
       </div>
-      <div class="text-[8px] syncopate tracking-[0.4em] text-blue-500 animate-pulse">
-        • AI_CORE_ACTIVE
-      </div>
+      <a href="/" class="text-[8px] syncopate tracking-[0.4em] text-blue-500 hover:text-white transition-colors">
+        ← BACK
+      </a>
     </div>
 
     <!-- Header -->
-    <header class="text-left space-y-4 px-2">
-      <h1 class="syncopate text-6xl font-bold leading-none chrome-text tracking-tighter">
-        AI<br>AVATARS
+    <header class="px-2 space-y-4">
+      <h1 class="syncopate text-5xl font-bold leading-none chrome-text tracking-tighter">
+        KP<br>PRICE
       </h1>
 
-      <div class="space-y-1 border-l-2 border-white/20 pl-4">
+      <div class="space-y-2 border-l-2 border-white/20 pl-4">
         <p class="syncopate text-lg font-bold">ЕВГЕНИЙ БЛАГОВ</p>
         <p class="text-[10px] uppercase tracking-[0.5em] text-zinc-500 font-bold">
-          Цифровой продюсер · видео и аватары под задачу
+          Аватары и видео под задачу · без съёмок и лишней сложности
         </p>
+
+        <div class="flex flex-wrap gap-2 pt-2">
+          <span class="pill">24H DELIVERY</span>
+          <span class="pill">TEXT → VOICE → LIPSYNC</span>
+          <span class="pill">RU / EN</span>
+        </div>
       </div>
     </header>
 
-    <!-- Cards -->
-    <section class="space-y-6">
-
-      <!-- Card 1: Avatars -->
-      <a href="https://www.instagram.com/blagovavatars/" target="_blank" rel="noopener"
-         class="liquid-glass p-6 group block overflow-hidden">
-        <div class="scanline"></div>
-        <div class="flex items-center gap-6">
-          <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 group-hover:text-white transition-colors">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-width="1.2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="syncopate text-sm font-bold tracking-tight">AI AVATARS</h3>
-            <p class="text-[10px] text-zinc-500 uppercase mt-1">Говорящие персонажи · роли · витрина</p>
-          </div>
-        </div>
-      </a>
-
-      <!-- Card 2: Blagovek Instagram -->
-      <a href="https://www.instagram.com/blagovek/" target="_blank" rel="noopener"
-         class="liquid-glass p-6 group block overflow-hidden">
-        <div class="flex items-center gap-6">
-          <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 group-hover:text-white transition-colors">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-width="1.2" d="M12 3v18M3 12h18M7 7h10v10H7z"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="syncopate text-sm font-bold tracking-tight">BLAGOVEK</h3>
-            <p class="text-[10px] text-zinc-500 uppercase mt-1">Кейсы · процессы · продакшн</p>
-          </div>
-        </div>
-      </a>
-
-      <!-- Card 3: Evgenia Strong -->
-      <a href="https://www.instagram.com/evgeniimisli/" target="_blank" rel="noopener"
-         class="liquid-glass p-6 group block overflow-hidden">
-        <div class="flex items-center gap-6">
-          <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 group-hover:text-white transition-colors">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-width="1.2" d="M4 15s2-3 8-3 8 3 8 3M9 9h.01M15 9h.01M8 20h8"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="syncopate text-sm font-bold tracking-tight">CREATIVE & IDEAS</h3>
-            <p class="text-[10px] text-zinc-500 uppercase mt-1">Идеи · концепты · визуальные эксперименты</p>
-          </div>
-        </div>
-      </a>
-
-      <!-- КП / Прайс -->
-      <div class="kp">
-        <div class="flex items-center justify-between">
-          <h4>КП / Прайс</h4>
-          <span class="pill">24H DELIVERY</span>
-        </div>
-
-        <div class="row">
-          <div class="label">
-            Первый тест-ролик (разогрев)<br>
-            15–20 сек · 1 сцена · базовые субтитры
-          </div>
-          <div class="price chrome-text">2 900 ₽</div>
-        </div>
-
-        <div class="row">
-          <div class="label">
-            START<br>
-            20–30 сек · до 3 сцен · под ваш текст
-          </div>
-          <div class="price chrome-text">3 900 ₽</div>
-        </div>
-
-        <div class="row">
-          <div class="label">
-            PRO<br>
-            45–60 сек · до 5 сцен · динамичнее
-          </div>
-          <div class="price chrome-text">6 900 ₽</div>
-        </div>
-
-        <div class="row">
-          <div class="label">
-            SERIES<br>
-            4 ролика · единый стиль · пакет
-          </div>
-          <div class="price chrome-text">19 900 ₽</div>
-        </div>
-
-        <div class="note">
-          Допы: RU/EN +1 500 ₽ · доп. сцены/B-roll +900 ₽ · сценарий “с нуля” +1 500 ₽ · монтаж “под ключ” +2 900 ₽
-        </div>
-      </div>
-
+    <!-- What you get -->
+    <section class="liquid-glass p-6 overflow-hidden">
+      <div class="scanline"></div>
+      <h2 class="syncopate text-sm font-bold tracking-tight">ЧТО Я ДЕЛАЮ</h2>
+      <p class="text-sm text-white/80 mt-3 leading-relaxed">
+        Говорящие персонажи и аватары, которые озвучивают ваш текст — для бизнеса, обучения, онбординга,
+        экспертных разборов, презентаций, соцсетей и внутренних коммуникаций.
+      </p>
+      <div class="divider"></div>
+      <ul class="text-sm text-white/75 space-y-2">
+        <li>• видео 9:16 (Reels/Shorts) или 16:9 (YouTube)</li>
+        <li>• субтитры и базовые оверлеи по сценам (по задаче)</li>
+        <li>• аккуратная “витринная” подача: без лишней болтовни, по делу</li>
+      </ul>
     </section>
 
-    <!-- Footer -->
-    <footer class="pt-2 space-y-8 text-center">
+    <!-- Pricing -->
+    <section class="space-y-6">
+      <div class="px-2">
+        <h2 class="syncopate text-sm font-bold tracking-tight">ПАКЕТЫ</h2>
+        <p class="text-[12px] text-white/60 mt-2">
+          Цены ориентировочные (на 20% ниже “средних”), финально — по задаче и объёму.
+        </p>
+      </div>
+
+      <!-- Pack 1 -->
+      <div class="liquid-glass p-6">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h3 class="syncopate text-sm font-bold tracking-tight">START</h3>
+            <p class="text-[10px] text-zinc-500 uppercase mt-1">20–30 сек · 24 часа</p>
+          </div>
+          <div class="text-right">
+            <div class="price text-lg chrome-text">6 900 ₽</div>
+            <div class="text-[10px] text-white/55 uppercase tracking-[0.35em]">1 видео</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <ul class="text-sm text-white/75 space-y-2">
+          <li>• 3–5 сцен (ближе/дальше, смена ракурса)</li>
+          <li>• субтитры + 1 стиль оверлеев</li>
+          <li>• 1 правка по тексту/таймингу</li>
+        </ul>
+      </div>
+
+      <!-- Pack 2 -->
+      <div class="liquid-glass p-6">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h3 class="syncopate text-sm font-bold tracking-tight">PRO</h3>
+            <p class="text-[10px] text-zinc-500 uppercase mt-1">45–60 сек · 24–48 часов</p>
+          </div>
+          <div class="text-right">
+            <div class="price text-lg chrome-text">12 900 ₽</div>
+            <div class="text-[10px] text-white/55 uppercase tracking-[0.35em]">1 видео</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <ul class="text-sm text-white/75 space-y-2">
+          <li>• 6–10 сцен, сильнее “телевизионная” подача</li>
+          <li>• субтитры + оверлеи + базовый саунд-дизайн</li>
+          <li>• 2 правки (текст/темп/сцены)</li>
+        </ul>
+      </div>
+
+      <!-- Pack 3 -->
+      <div class="liquid-glass p-6">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h3 class="syncopate text-sm font-bold tracking-tight">SERIES</h3>
+            <p class="text-[10px] text-zinc-500 uppercase mt-1">4 ролика · 3–5 дней</p>
+          </div>
+          <div class="text-right">
+            <div class="price text-lg chrome-text">39 900 ₽</div>
+            <div class="text-[10px] text-white/55 uppercase tracking-[0.35em]">4 видео</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <ul class="text-sm text-white/75 space-y-2">
+          <li>• единый стиль, единый персонаж (или набор ролей)</li>
+          <li>• шаблон “серии” + быстрый выпуск дальше</li>
+          <li>• выгодно, если нужен регулярный контент</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Add-ons -->
+    <section class="liquid-glass p-6">
+      <h2 class="syncopate text-sm font-bold tracking-tight">ДОПОЛНИТЕЛЬНО</h2>
+      <div class="divider"></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-white/75">
+        <div>• Второй язык (RU/EN): <span class="price chrome-text">+2 900 ₽</span></div>
+        <div>• Доп. сцены / B-roll: <span class="price chrome-text">+1 900 ₽</span></div>
+        <div>• Сценарий “с нуля”: <span class="price chrome-text">+2 900 ₽</span></div>
+        <div>• Полный монтаж “под ключ”: <span class="price chrome-text">+4 900 ₽</span></div>
+      </div>
+    </section>
+
+    <!-- How to order -->
+    <section class="liquid-glass p-6">
+      <h2 class="syncopate text-sm font-bold tracking-tight">КАК ЗАКАЗАТЬ</h2>
+      <div class="divider"></div>
+      <ol class="text-sm text-white/75 space-y-2">
+        <li>1) Присылаете текст (или тезисы) + цель видео.</li>
+        <li>2) Я предлагаю структуру (сцены/темп/оверлеи).</li>
+        <li>3) Собираю ролик и отдаю готовый файл.</li>
+      </ol>
+      <div class="divider"></div>
+      <p class="text-[12px] text-white/60 leading-relaxed">
+        Если у вас есть бренд-стиль (шрифт/цвет/логотип) — подключу. Если нет — сделаю нейтральный “премиум” стиль.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="text-center space-y-4">
       <a href="https://t.me/blagovek" target="_blank" rel="noopener"
          class="metal-btn w-full py-5 inline-block">
-        <span class="syncopate text-xs tracking-[0.3em] uppercase">Запросить КП в Telegram</span>
+        <span class="syncopate text-xs tracking-[0.3em] uppercase">Написать в Telegram</span>
       </a>
 
       <div class="flex justify-center gap-10">
-        <a href="https://t.me/blagovek" target="_blank" rel="noopener"
-           class="micro-link text-[9px] font-bold tracking-[0.5em] uppercase">Telegram</a>
+        <a href="https://www.instagram.com/blagovavatars/" target="_blank" rel="noopener"
+           class="micro-link text-[9px] font-bold tracking-[0.5em] uppercase">Avatars</a>
+
+        <a href="https://www.instagram.com/blagovek/" target="_blank" rel="noopener"
+           class="micro-link text-[9px] font-bold tracking-[0.5em] uppercase">Blagovek</a>
 
         <a href="https://www.youtube.com/@Blagov4217" target="_blank" rel="noopener"
            class="micro-link text-[9px] font-bold tracking-[0.5em] uppercase">YouTube</a>
       </div>
 
       <div class="text-[9px] text-zinc-600 tracking-wide">
-        blagovek.site
+        blagovek.site/kp
       </div>
-    </footer>
+    </section>
 
   </main>
 </body>
