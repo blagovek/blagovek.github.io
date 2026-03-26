@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blagovek — визитка</title>
+  <title>Благов Евгений — визитка</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --metal-gradient: linear-gradient(135deg, #71717a 0%, #ffffff 45%, #a1a1aa 55%, #27272a 100%);
-    }
-
     body {
       font-family: 'Space Grotesk', sans-serif;
       background-color: #050505;
@@ -27,7 +23,7 @@
 
     .syncopate { font-family: 'Syncopate', sans-serif; }
 
-    /* Chrome text */
+    /* Chrome text effect */
     .chrome-text {
       background: linear-gradient(120deg, #e5e7eb, #a1a1aa, #ffffff, #71717a, #e5e7eb);
       background-size: 200% auto;
@@ -39,7 +35,7 @@
     }
     @keyframes shine { to { background-position: 200% center; } }
 
-    /* Ambient */
+    /* Ambient background */
     .ambient-light {
       position: fixed;
       inset: 0;
@@ -49,138 +45,40 @@
         radial-gradient(700px 450px at 85% 70%, rgba(59,130,246,0.10), transparent 60%);
       z-index: 0;
     }
-
-    /* Liquid glass */
-    .liquid-glass {
-      background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.10),
-        0 30px 60px rgba(0,0,0,0.45);
-      border-radius: 18px;
-      position: relative;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-    .liquid-glass:hover {
-      transform: translateY(-2px);
-      border-color: rgba(59,130,246,0.35);
-    }
-
-    /* Scanline */
-    .scanline {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: -30%;
-      height: 30%;
-      background: linear-gradient(to bottom, transparent, rgba(59,130,246,0.18), transparent);
-      animation: scan 3.2s ease-in-out infinite;
-      pointer-events: none;
-      opacity: 0.75;
-    }
-    @keyframes scan {
-      0% { top: -30%; opacity: 0; }
-      35% { opacity: 0.7; }
-      100% { top: 100%; opacity: 0; }
-    }
-
-    /* Metal button */
-    .metal-btn {
-      background: var(--metal-gradient);
-      color: #000;
-      font-weight: 800;
-      border-radius: 12px;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.25s ease;
-      box-shadow: 0 14px 35px rgba(0,0,0,0.45);
-    }
-    .metal-btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.06);
-    }
-    .metal-btn::after {
-      content: "";
-      position: absolute;
-      inset: -60% -60%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.65), transparent 35%);
-      transform: rotate(12deg);
-      opacity: 0.35;
-      transition: opacity 0.25s ease;
-      pointer-events: none;
-    }
-    .metal-btn:hover::after { opacity: 0.55; }
-
-    /* Link micro */
-    .micro-link {
-      color: rgba(255,255,255,0.55);
-      transition: color 0.2s ease;
-    }
-    .micro-link:hover {
-      color: rgba(59,130,246,0.95);
-    }
   </style>
 </head>
 
 <body class="p-4 md:p-8">
   <div class="ambient-light"></div>
 
-  <main class="max-w-md w-full space-y-10 relative z-10">
+  <main class="max-w-md w-full space-y-12 relative z-10">
 
-    <!-- Status line (decorative UI vibe) -->
     <div class="flex justify-between items-center px-2">
       <div class="text-[8px] syncopate tracking-[0.4em] text-zinc-600">
         MODEL: BLAGOV_SYSTEM_v3.0
       </div>
       <div class="text-[8px] syncopate tracking-[0.4em] text-blue-500 animate-pulse">
-        • AI_CORE_ACTIVE
+        • ONLINE
       </div>
     </div>
 
-    <!-- Header -->
-    <header class="text-left space-y-4 px-2">
-      <h1 class="syncopate text-6xl font-bold leading-none chrome-text tracking-tighter">
-        AI<br>AVATARS
+    <header class="text-left space-y-8 px-2">
+      <h1 class="syncopate text-5xl md:text-6xl font-bold leading-none chrome-text tracking-tighter uppercase">
+        БЛАГОВ<br>ЕВГЕНИЙ
       </h1>
 
-      <div class="space-y-1 border-l-2 border-white/20 pl-4">
-        <p class="syncopate text-lg font-bold">ЕВГЕНИЙ БЛАГОВ</p>
+      <div class="space-y-2 border-l-2 border-white/20 pl-4">
+        <a href="tel:+79182730066" class="syncopate text-xl md:text-2xl font-bold hover:text-blue-400 transition-colors duration-300 block">
+          8 918 273 00 66
+        </a>
         <p class="text-[10px] uppercase tracking-[0.5em] text-zinc-500 font-bold">
-          Цифровой продюсер · видео и аватары под задачу
+          Цифровой продюсер
         </p>
       </div>
     </header>
 
-    <!-- Cards -->
-    <section class="space-y-6">
-
-      <!-- Card 1 -->
-      <a href="https://www.instagram.com/blagovavatars/" target="_blank" rel="noopener"
-         class="liquid-glass p-6 group block overflow-hidden">
-        <div class="scanline"></div>
-        <div class="flex items-center gap-6">
-          <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 group-hover:text-white transition-colors">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-width="1.2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="syncopate text-sm font-bold tracking-tight">AI AVATARS</h3>
-            <p class="text-[10px] text-zinc-500 uppercase mt-1">Говорящие персонажи · роли · витрина</p>
-          </div>
-        </div>
-      </a>
-
-    </section>
-
-    <!-- Footer -->
-    <footer class="pt-2 space-y-8 text-center">
-      <a href="/kp/" class="metal-btn w-full py-5 inline-block">
-        <span class="syncopate text-xs tracking-[0.3em] uppercase">КП / Прайс</span>
-      </a>
-
-      <div class="text-[9px] text-zinc-600 tracking-wide">
+    <footer class="pt-10 text-center">
+      <div class="text-[9px] text-zinc-600 tracking-wide uppercase">
         blagovek.site
       </div>
     </footer>
